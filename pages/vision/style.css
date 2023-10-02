@@ -1,0 +1,109 @@
+html {
+  font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #312e2b;
+  background-size: 100vw 100vh;
+}
+
+.menuBar {
+  margin-right: 10px;
+  float: left;
+  background-color: #272522;
+  opacity: var(--opacity);
+}
+
+.page {
+  margin-left: 14%;
+}
+
+.chessBoard {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lineContainer {
+  display: flex;
+}
+
+.pieceContainer {
+  position: relative;
+  width: var(--board-size);
+  height: var(--board-size);
+}
+
+.unevenSquare {
+  background-color: #f0d9b5;
+}
+
+.evenSquare {
+  background-color: #b58863;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  width: 13%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  float: left;
+  background-color: #262421;
+  border-right: 1px solid #4a4848;
+  list-style-type: none;
+}
+
+li a {
+  display: block;
+  color: #d5d5d5;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555;
+}
+
+.settingsIcon {
+  width: 17.5px;
+  filter: contrast(0);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 7.5px;
+  z-index: 1;
+}
+
+.icon-select {
+  width: 17.5px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 7px 155px;
+  z-index: 2;
+}
+
+.backgroundImageFileInput {
+  width: 100px;
+  font-size: 10px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 7px 24px;
+  color: transparent;
+  z-index: 1;
+}
+
+.backgroundImageFileInput::file-selector-button {
+  height: 28px;
+}
+
+:root {
+  --board-canvas-size: 350px;
+  --move-dot-size: 27.5px;
+  --move-dot-margin: 32px;
+}

@@ -1,0 +1,200 @@
+html {
+  font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #312e2b;
+  background-size: 100vw 100vh;
+  overflow-x: hidden;
+}
+
+.menuBar {
+  margin-right: 10px;
+  float: left;
+  background-color: #272522;
+  opacity: var(--opacity);
+}
+
+.page {
+  margin-left: 14%;
+}
+
+.gameIdDisplay {
+  margin-left: 5vw;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.chessBoard {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.chessBoardCanvas {
+  width: var(--board-canvas-size);
+  padding-top: 12.5px;
+}
+
+.lineContainer {
+  display: flex;
+}
+
+.pieceContainer {
+  position: relative;
+  width: var(--board-size);
+  height: var(--board-size);
+}
+
+.pieceImage {
+  position: absolute;
+  width: var(--board-size);
+  z-index: 1;
+}
+
+.unevenSquare {
+  background-color: #f0d9b5;
+}
+
+.evenSquare {
+  background-color: #b58863;
+}
+
+.moveDot {
+  position: absolute;
+  width: 32.5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.piecePromotionContainer {
+  background-color: #e7e7e7;
+  width: calc(var(--board-size) - 10px);
+  height: calc(var(--board-size) - 10px);
+  border-radius: 10px;
+  position: absolute;
+  overflow-y: scroll;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.piecePromotionContainerImage {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.container {
+  padding: 16px;
+  border-radius: 7.5px;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  width: 13%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  float: left;
+  background-color: #262421;
+  border-right: 1px solid #4a4848;
+  list-style-type: none;
+}
+
+li a {
+  display: block;
+  color: #d5d5d5;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555;
+}
+
+.settingsIcon {
+  width: 17.5px;
+  filter: contrast(0);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 7.5px;
+  z-index: 1;
+}
+
+.icon-select {
+  width: 17.5px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 7px 155px;
+  z-index: 2;
+}
+
+.backgroundImageFileInput {
+  width: 100px;
+  font-size: 10px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 7px 24px;
+  color: transparent;
+  z-index: 1;
+}
+
+.backgroundImageFileInput::file-selector-button {
+  height: 28px;
+}
+
+:root {
+  --board-canvas-size: 350px;
+  --move-dot-size: 27.5px;
+  --move-dot-margin: 32px;
+}

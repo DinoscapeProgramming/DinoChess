@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A chess app with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>DinoChess - News</title>
+  <link rel="stylesheet" href="/public/iconselect/iconselect.css">
+  <link rel="stylesheet" href="/pages/news/style.css">
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/public/iconselect/iscroll.js"></script>
+  <script defer src="/public/iconselect/iconselect.js"></script>
+  <script defer src="/pages/settings.js"></script>
+  <script defer src="/pages/news/script.js"></script>
+</head>
+<body>
+  <div class="menuBar">
+    <ul style="height: 100%">
+      <li><a href="/">Play</a></li>
+      <li><a href="/computer">Computer</a></li>
+      <li><a href="/puzzles">Puzzles</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/news/1" style="color: white;">News</a></li>
+      <li><a href="/videos">Videos</a></li>
+      <li><a href="/streamers">Streamers</a></li>
+      <li><a href="/gifMaker">Gif Maker</a></li>
+    </ul>
+  </div>
+  <div class="page">
+    <img class="newsImage" style="display: <%= (news[newsId - 1]) ? 'block' : 'none' %>;" src="<%= news[newsId - 1]?.images?.[0] %>">
+    <h1 class="newsTitle" style="display: <%= (news[newsId - 1]) ? 'block' : 'none' %>;"><%= news[newsId - 1]?.title %></h1>
+    <span class="newsContent" style="display: <%= (news[newsId - 1]) ? 'block' : 'none' %>;"><%= news[newsId - 1]?.content %></span>
+    <div class="newsArticleView">
+      <% news.map((newsArticle, newsArticleIndex) => ({
+        ...newsArticle || {},
+        ...{
+          id: newsArticleIndex
+        }
+      })).filter((_, newsIndex) => newsIndex !== (newsId - 1)).reduce((data, newsArticle, newsArticleIndex) => (newsArticleIndex % 2) ? data.map((content, index) => ((index + 1) === data.length) ? [
+        ...[
+          content[0]
+        ],
+        ...[
+          newsArticle
+        ]
+      ] : content) : [
+        ...data,
+        ...[
+          [
+            newsArticle,
+            {
+              title: "",
+              content: "",
+              images: [
+                "/public/emptyImagePlaceholder.png"
+              ]
+            }
+          ]
+        ]
+      ], []).forEach((newsArticleCollection, newsArticleCollectionIndex) => {
+        %>
+          <div style="margin-bottom: <%= (((((newsArticleCollectionIndex + 1) * 2) + 1) >= (Math.floor(news.length / 2) * 2)) ? 20 : 0).toString() + 'px' %>; width: 100%;">
+            <% newsArticleCollection.forEach((newsArticle, newsArticleIndex) => {
+              %>
+              <div style="width: 100%;">
+                <a class="newsArticleViewElement" href="<%= '/news/' + (newsArticle.id + 1).toString() %>">
+                  <img style="margin-left: <%= (newsArticleIndex * 7.5).toString() + 'px' %>; margin-right: <%= (7.5 + (newsArticleIndex * 12.5)).toString() + 'px' %>; height: 22.5vw;" src="<%= newsArticle.images[0] || '/public/imagePlaceholder.png' %>">
+                  <span style="margin-left: <%= (newsArticleIndex * 7.5).toString() + 'px' %>; margin-right: <%= (7.5 + (newsArticleIndex * 12.5)).toString() + 'px' %>;"><%= newsArticle.title %></span>
+                </a>
+              </div>
+              <%
+            }); %>
+          </div>
+        <%
+      });%>
+    </div>
+  </div>
+  <div>
+    <img src="/public/settingsIcon.svg" id="settingsIcon" class="settingsIcon">
+    <div id="pieceStyleIconSelect" style="display: none;"></div>
+    <input type="file" id="backgroundImageFileInput" class="backgroundImageFileInput" style="display: none;">
+  </div>
+</body>
+</html>

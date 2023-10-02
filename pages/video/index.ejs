@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A chess app with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>DinoChess - Video</title>
+  <link rel="stylesheet" href="/public/iconselect/iconselect.css">
+  <link rel="stylesheet" href="/pages/video/style.css">
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/public/iconselect/iscroll.js"></script>
+  <script defer src="/public/iconselect/iconselect.js"></script>
+  <script defer src="/pages/settings.js"></script>
+  <script defer src="/pages/video/script.js"></script>
+</head>
+<body>
+  <div class="menuBar">
+    <ul style="height: 100%">
+      <li><a href="/">Play</a></li>
+      <li><a href="/computer">Computer</a></li>
+      <li><a href="/puzzles">Puzzles</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/news/1">News</a></li>
+      <li><a href="/videos" style="color: white;">Videos</a></li>
+      <li><a href="/streamers">Streamers</a></li>
+      <li><a href="/gifMaker">Gif Maker</a></li>
+    </ul>
+  </div>
+  <div class="page" style="padding: <%= '1px 0 ' + ((Boolean(videoTitle && videoAuthor && videoDescription)) * 12.5).toString() + 'px 20px' %>;">
+    <iframe class="videoEmbed" style="margin-bottom: <%= (!(Boolean(videoTitle && videoAuthor && videoDescription)) * 15).toString() + 'px' %>;" type="text/html" src="https://www.youtube.com/embed/<%= videoId %>" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    <h1 class="videoTitle"><%= videoTitle %></h1>
+    <h2 class="videoAuthor"><%= videoAuthor %></h2>
+    <span class="videoDescription"><%= videoDescription %></span>
+  </div>
+  <div>
+    <img src="/public/settingsIcon.svg" id="settingsIcon" class="settingsIcon">
+    <div id="pieceStyleIconSelect" style="display: none;"></div>
+    <input type="file" id="backgroundImageFileInput" class="backgroundImageFileInput" style="display: none;">
+  </div>
+</body>
+</html>

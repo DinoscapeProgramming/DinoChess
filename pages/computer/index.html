@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A chess app with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>DinoChess - Computer</title>
+  <link rel="stylesheet" href="/public/iconselect/iconselect.css">
+  <link rel="stylesheet" href="/pages/computer/style.css"></link>
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/public/iconselect/iscroll.js"></script>
+  <script defer src="/public/iconselect/iconselect.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="/pages/settings.js"></script>
+  <script defer src="/pages/computer/script.js"></script>
+</head>
+<body>
+  <div class="menuBar">
+    <ul style="height: 100%">
+      <li><a href="/">Play</a></li>
+      <li><a href="/computer" style="color: white;">Computer</a></li>
+      <li><a href="/puzzles">Puzzles</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/news/1">News</a></li>
+      <li><a href="/videos">Videos</a></li>
+      <li><a href="/streamers">Streamers</a></li>
+      <li><a href="/gifMaker">Gif Maker</a></li>
+    </ul>
+  </div>
+  <div class="page" id="mainContainer">
+    <div style="padding-top: 5px; opacity: var(--opacity);">
+      <b style="color: white; font-size: 140%;">DinoBot</b>
+      <br>
+      <span style="color: white;">Black</span>
+    </div>
+    <div id="chessBoard" class="chessBoard"></div>
+    <div style="position: absolute; bottom: 0; padding-bottom: 10px; opacity: var(--opacity);">
+      <b style="color: white; font-size: 140%;">You</b>
+      <br>
+      <span style="color: white;">White</span>
+    </div>
+  </div>
+  <div id="gameEndPopup" class="modal">
+    <form class="modal-content animate" action="/action_page.php" method="post" style="border: none;">
+      <div class="container" style="background-color: #3a3a3a;">
+        <b style="font-size: 25px; color: white;">You <span>won</span> against <span style="text-decoration: underline;">DinoBot</span> by <span style="
+    text-decoration: underline;
+"></span><span style="font-size: 20px;"> (refresh to start new game)</span></b>
+        <br>
+      </div>
+    </form>
+  </div>
+  <div>
+    <img src="/public/settingsIcon.svg" id="settingsIcon" class="settingsIcon">
+    <div id="pieceStyleIconSelect" style="display: none;"></div>
+    <input type="file" id="backgroundImageFileInput" class="backgroundImageFileInput" style="display: none;">
+  </div>
+</body>
+</html>

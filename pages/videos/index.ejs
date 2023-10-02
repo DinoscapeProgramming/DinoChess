@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A chess app with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>DinoChess - Videos</title>
+  <link rel="stylesheet" href="/public/iconselect/iconselect.css">
+  <link rel="stylesheet" href="/pages/videos/style.css">
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/public/iconselect/iscroll.js"></script>
+  <script defer src="/public/iconselect/iconselect.js"></script>
+  <script defer src="/pages/settings.js"></script>
+  <script defer src="/pages/videos/script.js"></script>
+</head>
+<body>
+  <div class="menuBar">
+    <ul style="height: 100%">
+      <li><a href="/">Play</a></li>
+      <li><a href="/computer">Computer</a></li>
+      <li><a href="/puzzles">Puzzles</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/news/1">News</a></li>
+      <li><a href="/videos" style="color: white;">Videos</a></li>
+      <li><a href="/streamers">Streamers</a></li>
+      <li><a href="/gifMaker">Gif Maker</a></li>
+    </ul>
+  </div>
+  <div class="page">
+    <% videos.reduce((data, video, videoIndex) => (videoIndex % 3) ? data.map((content, index) => ((index + 1) === data.length) ? [
+        ...[
+          content[0]
+        ],
+        ...(content[1].id) ? [
+          content[1]
+        ] : [],
+        ...[
+          video
+        ]
+      ] : content) : [
+        ...data,
+        ...[
+          [
+            video,
+            {
+              id: "",
+              duration: "",
+              title: "",
+              author: ""
+            },
+            {
+              id: "",
+              duration: "",
+              title: "",
+              author: ""
+            }
+          ]
+        ]
+      ], []).forEach((videoCollection, videoCollectionIndex) => {
+      %>
+        <div class="videoContainerCollection" style="margin-top: <%= ((!videoCollectionIndex) ? 0 : 7.5).toString() + 'px' %>;">
+          <% videoCollection.forEach(({ id, title, author, duration }) => {
+            %>
+              <div class="videoContainer">
+                <img class="videoContainerThumbnail" src="<%= 'https://img.youtube.com/vi/' + id + '/0.jpg' %>" onclick="openVideo('<%= id %>')">
+                <h4 class="videoContainerTitle" onclick="openVideo('<%= id %>')"><%= title %></h4>
+                <span class="videoContainerAuthor" onclick="openVideo('<%= id %>')"><%= author %></span>
+                <div class="videoContainerDurationBox">
+                  <span class="videoContainerDurationText" onclick="openVideo('<%= id %>')"><%= duration %></span>
+                </div>
+              </div>
+            <%
+          }); %>
+        </div>
+      <%
+    }); %>
+  </div>
+  <div>
+    <img src="/public/settingsIcon.svg" id="settingsIcon" class="settingsIcon">
+    <div id="pieceStyleIconSelect" style="display: none;"></div>
+    <input type="file" id="backgroundImageFileInput" class="backgroundImageFileInput" style="display: none;">
+  </div>
+</body>
+</html>

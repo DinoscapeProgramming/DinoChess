@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A chess app with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>DinoChess - Streamers</title>
+  <link rel="stylesheet" href="/public/iconselect/iconselect.css">
+  <link rel="stylesheet" href="/pages/streamers/style.css"></link>
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/public/iconselect/iscroll.js"></script>
+  <script defer src="/public/iconselect/iconselect.js"></script>
+  <script defer src="/pages/settings.js"></script>
+  <script defer src="/pages/streamers/script.js"></script>
+</head>
+<body>
+  <div class="menuBar">
+    <ul style="height: 100%">
+      <li><a href="/">Play</a></li>
+      <li><a href="/computer">Computer</a></li>
+      <li><a href="/puzzles">Puzzles</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/news/1">News</a></li>
+      <li><a href="/videos">Videos</a></li>
+      <li><a href="/streamers" style="color: white;">Streamers</a></li>
+      <li><a href="/gifMaker">Gif Maker</a></li>
+    </ul>
+  </div>
+  <div class="page" id="mainContainer"></div>
+  <div>
+    <img src="/public/settingsIcon.svg" id="settingsIcon" class="settingsIcon">
+    <div id="pieceStyleIconSelect" style="display: none;"></div>
+    <input type="file" id="backgroundImageFileInput" class="backgroundImageFileInput" style="display: none;">
+  </div>
+</body>
+</html>

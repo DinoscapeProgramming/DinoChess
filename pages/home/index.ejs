@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A chess app with lots of features">
+  <meta name="theme-color" content="#000000">
+  <title>DinoChess - Play</title>
+  <link rel="stylesheet" href="/public/iconselect/iconselect.css">
+  <link rel="stylesheet" href="/pages/home/style.css">
+  <link rel="icon" href="/public/favicon.ico" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/public/favicon.ico">
+  <script defer>
+    const isElectron = Boolean(window.require);
+  </script>
+  <script defer src="/public/iconselect/iscroll.js"></script>
+  <script defer src="/public/iconselect/iconselect.js"></script>
+  <script defer src="/pages/settings.js"></script>
+  <script defer src="/pages/home/script.js"></script>
+</head>
+<body>
+  <div class="menuBar">
+    <ul style="height: 100%">
+      <li><a href="/" style="color: white;">Play</a></li>
+      <li><a href="/computer">Computer</a></li>
+      <li><a href="/puzzles">Puzzles</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/news/1">News</a></li>
+      <li><a href="/videos">Videos</a></li>
+      <li><a href="/streamers">Streamers</a></li>
+      <li><a href="/gifMaker">Gif Maker</a></li>
+    </ul>
+  </div>
+  <!-- <div class="page">
+    <a href="/" style="display: inline-block; margin-bottom: 105px;">
+      <img src="/public/logo.png" class="logo" id="logo" alt="Logo">
+    </a>
+    <div class="gameContainer" style="display: flex; background-color: #454444;">
+      <div class="gameContainer" style="display: flex;">
+        <input class="gameInput" placeholder="Username" id="matchMakingInput">
+        <button class="gameButton" id="matchMakingButton">Play</button>
+      </div>
+    </div>
+    <div class="gameContainer" style="display: flex; margin-top: 10px; background-color: #454444;">
+      <div class="gameContainer" style="display: flex;">
+        <input class="gameInput" placeholder="Game Id" id="joinGameInput">
+        <button class="gameButton" id="joinGameButton">Continue</button>
+      </div>
+      <div class="gameContainer" style="display: flex; margin-top: 10px;">
+        <input class="gameInput" placeholder="Username" id="createGameInput">
+        <button class="gameButton" id="createGameButton">Create Game</button>
+      </div>
+    </div>
+  </div> -->
+  <div class="page">
+    <a href="/" style="display: inline-block; margin-bottom: 105px;">
+      <img src="/public/logo.png" class="logo" id="logo" alt="Logo" style="
+">
+    </a>
+    <div style="display: flex; flex-direction: row;">
+      <img class="upperContainerImage" src="https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png">
+      <div>
+        <h1 class="upperContainerHeader">Master Your Moves, Conquer the Board!</h1>
+        <button class="upperContainerPlayButton" style="background-color: #81b64c;" onclick="document.getElementById('playGamePopup').style.display = 'block';">
+          <img src="https://www.chess.com/bundles/web/images/color-icons/playwhite.9673f38c.svg" style="height: 65px; margin-right: 60px;">
+          <div style="display: flex; flex-direction: column; transform: translateX(-35px);">
+            <span>Play Online</span>
+            <span style="font-size: 12.5px; padding-top: 5px; white-space: nowrap;">Play with fellow Enthusiasts</span>
+          </div>
+        </button>
+        <a style="display: contents;" href="/computer">
+          <button class="upperContainerComputerButton" style="background-color: #403e3c; margin-top: 20px;">
+            <img src="https://www.chess.com/bundles/web/images/color-icons/computer.2318c3b4.svg" style="height: 65px; margin-right: 40px;">
+            <div style="display: flex; flex-direction: column; transform: translateX(-12.5px);">
+              <span>Play Computer</span>
+              <span style=" font-size: 12.5px; padding-top: 5px; white-space: nowrap;">Play vs Customizable Bots</span>
+            </div>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="featureContainer" style="padding: 15px 30px 25px; margin-top: 50px;">
+      <div style="color: white;">
+        <h2 style="font-size: 2.5vw;">Solve Chess Puzzles</h2>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+          <img src="https://techtodown.com/api/uploads/medium_x_icon_changer_customize_app_icon_shortcut_54a074e291.webp" style="width: 10vw;">
+          <span style="font-size: 1.5vw; line-height: 2vw; margin-left: 17.5px;">
+            <div style="padding-bottom: 15px; padding-right: 5px;">
+              <span>Get to know the best way to improve pattern recognition</span>
+              <span style="margin-left: 10px;">‒</span>
+            </div>
+            <span style="color: hsla(0,0%,100%,.72); white-space: pre;">Dinoscape (Head of DinoChess)</span>
+          </span>
+        </div>
+        <a style="display: contents;" href="/puzzles">
+          <button class="featureContainerButton" style="width: calc(100% - 57.5px); margin-top: 45px;">Solve Puzzles</button>
+        </a>
+      </div>
+      <img src="https://www.chess.com/bundles/web/images/web/board-puzzles.4a54c49f@2x.png" style="width: 35vw; border-radius: 5px;">
+    </div>
+    <div class="featureContainer" style="padding: 20px 25px; margin-top: 25px;">
+      <img src="https://i.ytimg.com/vi/6WDVNZ7iR7Q/maxresdefault.jpg" style="width: 42.5vw; border-radius: 5px;">
+      <div style="color: white; margin-left: 32.5px;">
+        <h2 style="font-size: 2.5vw;">Watch Chess Streamers</h2>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+          <img src="https://techtodown.com/api/uploads/medium_x_icon_changer_customize_app_icon_shortcut_54a074e291.webp" style="width: 10vw;">
+          <span style="font-size: 1.5vw; line-height: 2vw; margin-left: 17.5px;">
+            <div style="padding-bottom: 15px; padding-right: 5px;">
+              <span>Advance your Chess Abilities</span>
+              <span style="margin-left: 10px;">‒</span>
+            </div>
+            <span style="color: hsla(0,0%,100%,.72); white-space: pre;">Dinoscape (Head of DinoChess)</span>
+          </span>
+        </div>
+        <a style="display: contents;" href="/streamers">
+          <button class="featureContainerButton" style="width: 100%; margin-top: 40px;">Watch Streamers</button>
+        </a>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; flex-direction: column; margin-left: 5px; margin-top: 30px;">
+      <h2 style="color: white; font-size: 30px;">Follow what's happening right now</h2>
+      <div style="margin-bottom: 0px; width: 100%; display: flex; margin-top: -12.5px;">
+        <div style="width: 100%;">
+          <a style="display: grid; flex: 50%; margin-top: 20px; text-decoration: none;" href="/news/1">
+            <img style="margin-left: 0px; margin-right: 5px; height: 22.5vw; width: -webkit-fill-available; border-radius: 7.5px;" src="<%= news[0].images[0] || '/public/imagePlaceholder.png' %>">
+            <span class="newsTitle"><%= news[0].title %></span>
+          </a>
+        </div>
+        <div style="width: 100%;">
+          <a style="display: grid; flex: 50%; margin-top: 20px; text-decoration: none;" href="/news/2">
+            <img style="height: 22.5vw; width: -webkit-fill-available; border-radius: 7.5px; margin-left: 5px; margin-right: 7.5px;" src="<%= news[1].images[0] || '/public/imagePlaceholder.png' %>">
+            <span class="newsTitle"><%= news[1].title %></span>
+          </a>
+        </div>
+      </div>
+      <div style="margin-bottom: 0px; width: 100%; display: flex;">
+        <div style="width: 100%;">
+          <a style="display: grid; flex: 50%; margin-top: 20px; text-decoration: none;" href="/news/3">
+            <img style="margin-left: 0px; margin-right: 5px; height: 22.5vw; width: -webkit-fill-available; border-radius: 7.5px;" src="<%= news[2].images[0] || '/public/imagePlaceholder.png' %>">
+            <span class="newsTitle"><%= news[2].title %></span>
+          </a>
+        </div>
+        <div style="width: 100%;">
+          <a style="display: grid; flex: 50%; margin-top: 20px; text-decoration: none;" href="/news/4">
+            <img style="height: 22.5vw; width: -webkit-fill-available; border-radius: 7.5px; margin-left: 5px; margin-right: 7.5px;" src="<%= news[3].images[0] || '/public/imagePlaceholder.png' %>">
+            <span class="newsTitle"><%= news[3].title %></span>
+          </a>
+        </div>
+      </div>
+      <a style="display: contents;" href="/news/all">
+        <button class="newsButton">View latest Chess News</button>
+      </a>
+    </div>
+  </div>
+  <div id="playGamePopup" class="modal" style="display: none;">
+    <form class="modal-content animate" style="border: none;">
+      <div class="container" style="background-color: #3a3a3a;">
+        <h2 style="color: white; margin-top: 10px; font-size: 27.5px;">Play Chess Online</h2>
+        <h4 style="color: #efebeb; font-size: 20px; margin-top: -10px;">Start your Chess Adventure today right now</h4>
+        <input id="modalContainerInput" class="modalContainerInput" placeholder="Your Username">
+        <button id="modalContainerButton" class="modalContainerButton">Play Online</button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <img src="/public/settingsIcon.svg" id="settingsIcon" class="settingsIcon">
+    <div id="pieceStyleIconSelect" style="display: none;"></div>
+    <input type="file" id="backgroundImageFileInput" class="backgroundImageFileInput" style="display: none;">
+  </div>
+</body>
+</html>
