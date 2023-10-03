@@ -41,6 +41,8 @@ document.getElementById("backgroundImageFileInput").addEventListener("change", (
   var fileReader = new FileReader();
   fileReader.addEventListener('load', () => {
     localStorage.setItem("backgroundImage", fileReader.result);
+    document.body.style.backgroundImage = "url(" + fileReader.result + ")";
+    document.documentElement.style.setProperty("--opacity", "0.8");
   });
   fileReader.readAsDataURL(document.getElementById("backgroundImageFileInput").files[0]);
 });

@@ -61,7 +61,7 @@
     </a>
     <div style="display: flex; flex-direction: row;">
       <img class="upperContainerImage" src="https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png">
-      <div>
+      <div class="upperContainerGameBox">
         <h1 class="upperContainerHeader">Master Your Moves, Conquer the Board!</h1>
         <button class="upperContainerPlayButton" style="background-color: #81b64c;" onclick="document.getElementById('playGamePopup').style.display = 'block';">
           <img src="https://www.chess.com/bundles/web/images/color-icons/playwhite.9673f38c.svg" style="height: 65px; margin-right: 60px;">
@@ -85,37 +85,37 @@
       <div style="color: white;">
         <h2 style="font-size: 2.5vw;">Solve Chess Puzzles</h2>
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-          <img src="https://techtodown.com/api/uploads/medium_x_icon_changer_customize_app_icon_shortcut_54a074e291.webp" style="width: 10vw;">
+          <img src="https://techtodown.com/api/uploads/medium_x_icon_changer_customize_app_icon_shortcut_54a074e291.webp" style="width: 10vw; height: 10vw; margin-left: 20px;">
           <span style="font-size: 1.5vw; line-height: 2vw; margin-left: 17.5px;">
             <div style="padding-bottom: 15px; padding-right: 5px;">
               <span>Get to know the best way to improve pattern recognition</span>
               <span style="margin-left: 10px;">‒</span>
             </div>
-            <span style="color: hsla(0,0%,100%,.72); white-space: pre;">Dinoscape (Head of DinoChess)</span>
+            <span style="color: hsla(0, 0%, 100%, 0.72); white-space: pre;">Dinoscape (Head of DinoChess)</span>
           </span>
         </div>
         <a style="display: contents;" href="/puzzles">
-          <button class="featureContainerButton" style="width: calc(100% - 57.5px); margin-top: 45px;">Solve Puzzles</button>
+          <button class="upperFeatureContainerButton" style="width: calc(100% - 57.5px); margin-top: 45px;">Solve Puzzles</button>
         </a>
       </div>
-      <img src="https://www.chess.com/bundles/web/images/web/board-puzzles.4a54c49f@2x.png" style="width: 35vw; border-radius: 5px;">
+      <img class="featureContainerShowcaseImage" style="width: 35vw; height: 35vw; border-radius: 5px; margin-left: 20px;" src="https://www.chess.com/bundles/web/images/web/board-puzzles.4a54c49f@2x.png">
     </div>
     <div class="featureContainer" style="padding: 20px 25px; margin-top: 25px;">
-      <img src="https://i.ytimg.com/vi/6WDVNZ7iR7Q/maxresdefault.jpg" style="width: 42.5vw; border-radius: 5px;">
+      <img class="featureContainerShowcaseImage" style="width: 42.5vw; height: 33.5vw; margin-top: 10px; margin-right: 20px; border-radius: 5px;" src="https://i.ytimg.com/vi/6WDVNZ7iR7Q/maxresdefault.jpg">
       <div style="color: white; margin-left: 32.5px;">
         <h2 style="font-size: 2.5vw;">Watch Chess Streamers</h2>
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-          <img src="https://techtodown.com/api/uploads/medium_x_icon_changer_customize_app_icon_shortcut_54a074e291.webp" style="width: 10vw;">
+          <img src="https://techtodown.com/api/uploads/medium_x_icon_changer_customize_app_icon_shortcut_54a074e291.webp" style="width: 10vw; height: 10vw;">
           <span style="font-size: 1.5vw; line-height: 2vw; margin-left: 17.5px;">
             <div style="padding-bottom: 15px; padding-right: 5px;">
               <span>Advance your Chess Abilities</span>
               <span style="margin-left: 10px;">‒</span>
             </div>
-            <span style="color: hsla(0,0%,100%,.72); white-space: pre;">Dinoscape (Head of DinoChess)</span>
+            <span style="color: hsla(0, 0%, 100%, 0.72); white-space: pre;">Dinoscape (Head of DinoChess)</span>
           </span>
         </div>
         <a style="display: contents;" href="/streamers">
-          <button class="featureContainerButton" style="width: 100%; margin-top: 40px;">Watch Streamers</button>
+          <button class="lowerFeatureContainerButton" style="width: 100%; margin-top: 40px;">Watch Streamers</button>
         </a>
       </div>
     </div>
@@ -155,12 +155,12 @@
     </div>
   </div>
   <div id="playGamePopup" class="modal" style="display: none;">
-    <form class="modal-content animate" style="border: none;">
+    <form id="playGamePopupForm" class="modal-content animate" style="border: none;">
       <div class="container" style="background-color: #3a3a3a;">
         <h2 style="color: white; margin-top: 10px; font-size: 27.5px;">Play Chess Online</h2>
         <h4 style="color: #efebeb; font-size: 20px; margin-top: -10px;">Start your Chess Adventure today right now</h4>
         <input id="modalContainerInput" class="modalContainerInput" placeholder="Your Username">
-        <button id="modalContainerButton" class="modalContainerButton">Play Online</button>
+        <button type="submit" id="modalContainerButton" class="modalContainerButton">Play Online</button>
       </div>
     </form>
   </div>

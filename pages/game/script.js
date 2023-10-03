@@ -245,6 +245,12 @@ window.addEventListener("click", ({ target }) => {
   }
 });
 
+window.addEventListener("touchend", ({ target }) => {
+  if (target === document.getElementById("gameEndPopup")) {
+    document.getElementById("gameEndPopup").style.display = "none";
+  }
+});
+
 /*if (isElectron) {
   window.addEventListener("offline", () => {
     require("electron").ipcRenderer.send("noInternetConnection");

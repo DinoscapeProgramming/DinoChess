@@ -240,6 +240,12 @@ window.addEventListener("click", ({ target }) => {
   }
 });
 
+window.addEventListener("touchend", ({ target }) => {
+  if (target === document.getElementById("puzzleEndPopup")) {
+    document.getElementById("puzzleEndPopup").style.display = "none";
+  }
+});
+
 /*if (isElectron) {
   window.addEventListener("offline", () => {
     require("electron").ipcRenderer.send("noInternetConnection");

@@ -2,26 +2,9 @@ if (localStorage.getItem("backgroundImage")) {
   document.body.style.backgroundImage = "url(" + localStorage.getItem("backgroundImage") + ")";
 };
 document.documentElement.style.setProperty("--opacity", (1 - (Boolean(localStorage.getItem("backgroundImage")) * 0.2)).toString());
-document.getElementById("modalContainerButton").addEventListener("click", matchMaking);
-/*document.getElementById("joinGameButton").addEventListener("click", joinGame);
-document.getElementById("createGameButton").addEventListener("click", createGame);*/
-document.getElementById("modalContainerInput").addEventListener("keydown", ({ repeat, key }) => {
-  if (repeat) return;
-  if (key !== "Enter") return;
-  matchMaking();
-});
-/*document.getElementById("joinGameInput").addEventListener("keydown", ({ repeat, key }) => {
-  if (repeat) return;
-  if (key !== "Enter") return;
-  joinGame();
-});
-document.getElementById("createGameInput").addEventListener("keydown", ({ repeat, key }) => {
-  if (repeat) return;
-  if (key !== "Enter") return;
-  createGame();
-});*/
 
-function matchMaking() {
+document.getElementById("playGamePopupForm").addEventListener("submit", (event) => {
+  event.preventDefault();
   if (!document.getElementById("modalContainerInput").value) return;
   if (!document.getElementById("modalContainerInput").dataset.gameId) {
     fetch("/api/v1/games/matchMaking")
@@ -32,30 +15,15 @@ function matchMaking() {
       link.click();
     });
   };
-};
-
-/*function joinGame() {
-  if (!document.getElementById("joinGameInput").value) return;
-  if (!document.getElementById("joinGameInput").dataset.gameId) {
-    document.getElementById("joinGameInput").dataset.gameId = document.getElementById("joinGameInput").value;
-    document.getElementById("joinGameInput").placeholder = "Username";
-    document.getElementById("joinGameInput").value = "";
-    document.getElementById("joinGameButton").innerText = "Join Game";
-  } else {
-    let link = document.createElement("a");
-    link.href = "/game/" + document.getElementById("joinGameInput").dataset.gameId + "?username=" + document.getElementById("joinGameInput").value;
-    link.click();
-  }
-};
-
-function createGame() {
-  if (!document.getElementById("createGameInput").value) return;
-  let link = document.createElement("a");
-  link.href = "/game/" + Math.random().toString(36).slice(-8) + "?username=" + document.getElementById("createGameInput").value;
-  link.click();
-};*/
+});
 
 window.addEventListener("click", ({ target }) => {
+  if (target === document.getElementById("playGamePopup")) {
+    document.getElementById("playGamePopup").style.display = "none";
+  }
+});
+
+window.addEventListener("touchend", ({ target }) => {
   if (target === document.getElementById("playGamePopup")) {
     document.getElementById("playGamePopup").style.display = "none";
   }
