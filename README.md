@@ -1,6 +1,6 @@
 # DinoChess
 
-Welcome to the Chess Platform, your one-stop destination for all things chess! This platform is designed to provide you with a comprehensive chess experience, including online play, challenging computer opponents, solving puzzles, staying updated with chess news, watching instructional videos, following live streamers, improving your chess vision, and creating GIFs of your favorite games. Whether you're a beginner or a seasoned chess pro, this platform has something for everyone.
+Welcome to the Chess Platform, your one-stop destination for all things chess! This platform is designed to provide you with a comprehensive chess experience. Whether you're a beginner or a seasoned chess pro, this platform has something for everyone.
 
 ## Table of Contents
 - [Getting Started](#getting-started)
